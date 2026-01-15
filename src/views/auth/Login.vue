@@ -17,7 +17,7 @@
             <div class="logo-icon">
               <el-icon :size="32"><Printer /></el-icon>
             </div>
-            <h1 class="logo-text">打印管理系统</h1>
+            <h1 class="logo-text">打印管理系统测试</h1>
           </div>
           <p class="subtitle">科技赋能高效办公</p>
         </div>
