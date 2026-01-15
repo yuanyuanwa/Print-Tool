@@ -1,0 +1,100 @@
+// ===========================
+// CSS Reset / Normalize
+// ===========================
+
+@use './variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  font-family: $font-family;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  color: $text-primary;
+  background: $bg-dark;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+// 链接
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: $primary-light;
+  }
+}
+
+// 列表
+ul,
+ol {
+  list-style: none;
+}
+
+// 图片
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+// 按钮
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+// 输入框
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  
+  &:focus {
+    outline: none;
+  }
+}
+
+// 表格
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// 隐藏元素
+[hidden] {
+  display: none !important;
+}
+
+// 选择文字样式
+::selection {
+  background: rgba(139, 92, 246, 0.3);
+  color: $text-white;
+}

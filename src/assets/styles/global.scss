@@ -1,0 +1,297 @@
+// ===========================
+// 全局样式
+// ===========================
+
+@use './reset';
+
+// ===========================
+// Element Plus 主题覆盖
+// ===========================
+
+:root {
+  --el-color-primary: #{$primary-color};
+  --el-color-primary-light-3: #{$primary-light};
+  --el-color-primary-light-5: #{rgba($primary-color, 0.5)};
+  --el-color-primary-light-7: #{rgba($primary-color, 0.3)};
+  --el-color-primary-light-8: #{rgba($primary-color, 0.2)};
+  --el-color-primary-light-9: #{rgba($primary-color, 0.1)};
+  --el-color-primary-dark-2: #{$primary-dark};
+  
+  --el-bg-color: #{$bg-dark};
+  --el-bg-color-overlay: #{$bg-card};
+  --el-bg-color-page: #{$bg-darker};
+  
+  --el-text-color-primary: #{$text-primary};
+  --el-text-color-regular: #{$text-secondary};
+  --el-text-color-secondary: #{$text-muted};
+  
+  --el-border-color: #{$border-color};
+  --el-border-color-light: #{$border-light};
+  
+  --el-fill-color-blank: #{rgba($bg-dark, 0.8)};
+  --el-fill-color-light: #{rgba($primary-color, 0.1)};
+  
+  --el-mask-color: #{rgba($bg-darker, 0.8)};
+}
+
+// Element Plus 组件样式覆盖
+.el-button--primary {
+  @include glow-button;
+}
+
+.el-input {
+  --el-input-bg-color: #{rgba(15, 15, 35, 0.6)};
+  --el-input-border-color: #{$border-color};
+  --el-input-hover-border-color: #{$primary-color};
+  --el-input-focus-border-color: #{$primary-color};
+  --el-input-text-color: #{$text-primary};
+  --el-input-placeholder-color: #{$text-muted};
+}
+
+.el-input__wrapper {
+  background-color: rgba(15, 15, 35, 0.6) !important;
+  box-shadow: 0 0 0 1px $border-color inset !important;
+  
+  &:hover {
+    box-shadow: 0 0 0 1px $primary-color inset !important;
+  }
+  
+  &.is-focus {
+    box-shadow: 0 0 0 1px $primary-color inset, 0 0 0 3px rgba(139, 92, 246, 0.2) !important;
+  }
+}
+
+.el-select {
+  --el-select-border-color-hover: #{$primary-color};
+}
+
+.el-table {
+  --el-table-bg-color: transparent;
+  --el-table-tr-bg-color: transparent;
+  --el-table-header-bg-color: #{rgba($primary-color, 0.1)};
+  --el-table-row-hover-bg-color: #{rgba($primary-color, 0.08)};
+  --el-table-border-color: #{$border-light};
+  --el-table-text-color: #{$text-primary};
+  --el-table-header-text-color: #{$text-primary};
+  
+  background: transparent !important;
+  
+  &::before {
+    display: none;
+  }
+  
+  th.el-table__cell {
+    background: rgba($primary-color, 0.1) !important;
+  }
+  
+  tr {
+    background: transparent !important;
+  }
+}
+
+.el-card {
+  --el-card-bg-color: #{$bg-card};
+  --el-card-border-color: #{$border-color};
+  
+  @include tech-card;
+}
+
+.el-dialog {
+  --el-dialog-bg-color: #{$bg-dark};
+  --el-dialog-border-radius: #{$radius-lg};
+  
+  @include glass-effect;
+}
+
+.el-menu {
+  --el-menu-bg-color: transparent;
+  --el-menu-text-color: #{$text-secondary};
+  --el-menu-active-color: #{$primary-color};
+  --el-menu-hover-bg-color: #{rgba($primary-color, 0.1)};
+  --el-menu-item-height: 50px;
+}
+
+.el-pagination {
+  --el-pagination-bg-color: transparent;
+  --el-pagination-text-color: #{$text-secondary};
+  --el-pagination-button-bg-color: #{rgba($primary-color, 0.1)};
+  --el-pagination-hover-color: #{$primary-color};
+}
+
+.el-message-box {
+  --el-messagebox-title-color: #{$text-primary};
+  --el-messagebox-content-color: #{$text-secondary};
+  
+  @include glass-effect;
+  background: $bg-dark !important;
+}
+
+// ===========================
+// 通用工具类
+// ===========================
+
+// Flex 布局
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  @include flex-center;
+}
+
+.flex-between {
+  @include flex-between;
+}
+
+.flex-column {
+  @include flex-column;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+// 文字对齐
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+// 文字颜色
+.text-primary {
+  color: $text-primary;
+}
+
+.text-secondary {
+  color: $text-secondary;
+}
+
+.text-muted {
+  color: $text-muted;
+}
+
+.text-gradient {
+  @include text-gradient;
+}
+
+// 间距
+.mt-sm { margin-top: $spacing-sm; }
+.mt-md { margin-top: $spacing-md; }
+.mt-lg { margin-top: $spacing-lg; }
+.mt-xl { margin-top: $spacing-xl; }
+
+.mb-sm { margin-bottom: $spacing-sm; }
+.mb-md { margin-bottom: $spacing-md; }
+.mb-lg { margin-bottom: $spacing-lg; }
+.mb-xl { margin-bottom: $spacing-xl; }
+
+.ml-sm { margin-left: $spacing-sm; }
+.ml-md { margin-left: $spacing-md; }
+
+.mr-sm { margin-right: $spacing-sm; }
+.mr-md { margin-right: $spacing-md; }
+
+.p-sm { padding: $spacing-sm; }
+.p-md { padding: $spacing-md; }
+.p-lg { padding: $spacing-lg; }
+.p-xl { padding: $spacing-xl; }
+
+// 宽度
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+// 科技感动画
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(139, 92, 246, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.8);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+// 页面容器
+.page-container {
+  padding: $spacing-lg;
+  min-height: calc(100vh - 60px);
+  
+  @include mobile {
+    padding: $spacing-md;
+  }
+}
+
+// 页面标题
+.page-title {
+  font-size: $font-size-2xl;
+  font-weight: 700;
+  margin-bottom: $spacing-lg;
+  @include text-gradient;
+  
+  @include mobile {
+    font-size: $font-size-xl;
+    margin-bottom: $spacing-md;
+  }
+}
+
+// 卡片容器
+.card {
+  @include tech-card;
+  padding: $spacing-lg;
+  
+  @include mobile {
+    padding: $spacing-md;
+  }
+}
+
+// 滚动条
+body {
+  @include custom-scrollbar;
+}
